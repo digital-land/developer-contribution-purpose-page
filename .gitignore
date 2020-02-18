@@ -107,6 +107,7 @@ node_modules
 .DS_Store
 
 ### VisualStudioCode ###
+.vscode
 .vscode/*
 !.vscode/settings.json
 
