@@ -46,7 +46,7 @@ env = register_templates()
 page_template = env.get_template("index.html")
 
 def render_page():
-    with open(f"developer-contribution-categories.html", "w") as f:
+    with open(f"developer-contribution-purposes.html", "w") as f:
         f.write(page_template.render(
             static_folder=static_folder,
             data=json_data)
