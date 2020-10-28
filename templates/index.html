@@ -42,14 +42,14 @@
     </thead>
     <tbody class="govuk-table__body">
         {% for i in data %}
-        {% if i['end-date'] is none or i['end-date'] == "" %}
-        {%- if "Community Infrastructure Levy" in i['name'] or "CIL" in i['name'] -%}
+        {%- if i['end-date'] is none or i['end-date'] == "" %}
+        {%- if "community infrastructure levy" in i['name']|lower or "CIL" in i['name'] -%}
         <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell">{{ i['name'] }}</td>
             <td class="govuk-table__cell">{{ i['developer-contribution-purpose'] }}</td>
         </tr>
         {%- endif -%}
-        {% endif %}
+        {% endif -%}
         {% endfor %}
     </tbody>
 </table>
@@ -68,7 +68,7 @@
     <tbody class="govuk-table__body">
         {% for i in data %}
         {% if i['end-date'] is none or i['end-date'] == "" %}
-        {%- if "Community Infrastructure Levy" not in i['name']|string and "CIL" not in i['name'] -%}
+        {%- if "community infrastructure levy" not in i['name']|string|lower and "CIL" not in i['name'] -%}
         <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell">{{ i['name'] }}</td>
             <td class="govuk-table__cell">{{ i['developer-contribution-purpose'] }}</td>
