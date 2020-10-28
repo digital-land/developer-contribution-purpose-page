@@ -4,7 +4,7 @@
 
 We recommend working in [virtual environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/) before installing the python dependencies:
 
-    $ pipenv install
+    $ pip install -r requirements
 
 The page can be created by running:
 

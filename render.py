@@ -3,6 +3,7 @@
 import json
 import csv
 import jinja2
+import pprint
 
 import pandas as pd
 
@@ -16,7 +17,7 @@ data_frame_trimmed = data.apply(lambda x: x.str.strip() if x.dtype == "object" e
 data_frame_trimmed = data_frame_trimmed.rename(columns=lambda x: x.strip())
 
 json_data = json.loads(data_frame_trimmed.to_json(orient='records'))
-print(json_data)
+pprint.pprint(json_data)
 
 
 
@@ -25,7 +26,8 @@ def register_templates():
     multi_loader = jinja2.ChoiceLoader([
         jinja2.FileSystemLoader(searchpath="./templates"),
         jinja2.PrefixLoader({
-            'govuk-jinja-components': jinja2.PackageLoader('govuk-jinja-components')
+            'govuk-jinja-components': jinja2.PackageLoader('govuk_jinja_components'),
+            'digital-land-frontend': jinja2.PackageLoader('digital_land_frontend')
         })
     ])
     return jinja2.Environment(loader=multi_loader)
